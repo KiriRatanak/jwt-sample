@@ -14,16 +14,18 @@ JWT works by having user first send their authenticatation information and the J
 This mean that user will have to find a way to attach the token back to the server. Usually, this can be archieve using authentication bearer or cookies.
 
 **Benefit**
+
 The benefit is that the process is entirely stateless. The server doesn't even have to hit the database to verify the user. How this can be done is that, the server will have the same secret key, and will attempt to decrypt the token with the secret key, and if it works then the user is verified.
 
 **Drawback**
+
 Though this does not come without a drawback. The token will be the main component for authentication, and since it's staless no token is stored in the database. If the attacker happened to acquire the token then we can't do anything about it except waiting for the token to expire.
 
 However, this issue can be mitigate by either using refresh token and store some state in the database.
 
 # Using refresh-token
 
-As mentioned above, if the jwt is stolen than we can't do anything about it. One way to fix that is to make the token short-lived, like 15min maybe?
+As mentioned above, if the jwt is stolen then we can't do anything about it. One way to fix that is to make the token short-lived, like 15min maybe?
 
 But that would mean that the user would be required to login again every 15min. Smart.
 
