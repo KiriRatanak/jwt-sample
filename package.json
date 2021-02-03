@@ -1,19 +1,57 @@
 {
-  "name": "jwt-sample",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/KiriRatanak/jwt-sample.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/KiriRatanak/jwt-sample/issues"
-  },
-  "homepage": "https://github.com/KiriRatanak/jwt-sample#readme"
+ "name": "jwt-sample",
+ "version": "1.0.0",
+ "description": "",
+ "main": "index.js",
+ "scripts": {
+  "test": "jest",
+  "prestart": "npm run -s build",
+  "start": "node dist/index.js",
+  "build": "npm run clean && mkdir -p dist && babel src -s -D -d dist",
+  "clean": "rimraf dist"
+ },
+ "repository": {
+  "type": "git",
+  "url": "git+https://github.com/KiriRatanak/jwt-sample.git"
+ },
+ "author": "",
+ "license": "ISC",
+ "bugs": {
+  "url": "https://github.com/KiriRatanak/jwt-sample/issues"
+ },
+ "homepage": "https://github.com/KiriRatanak/jwt-sample#readme",
+ "dependencies": {
+  "body-parser": "^1.19.0",
+  "cookie-parser": "^1.4.5",
+  "cors": "^2.8.5",
+  "express": "^4.17.1",
+  "jsonwebtoken": "^8.5.1",
+  "mongodb": "^3.6.4",
+  "mongoose": "^5.11.14"
+ },
+ "devDependencies": {
+  "@babel/cli": "^7.12.13",
+  "@babel/core": "^7.12.13",
+  "@babel/preset-env": "^7.12.13",
+  "babel-core": "^6.26.3",
+  "babel-jest": "^26.6.3",
+  "jest": "^26.6.3",
+  "rimraf": "^3.0.2"
+ },
+ "jest": {
+  "verbose": "true",
+  "testRegex": ".spec.js"
+ },
+ "babel": {
+  "presets": [
+   [
+    "@babel/env",
+    {
+     "targets": {
+      "node": "10.8.0"
+     }
+    }
+   ]
+  ]
+ }
 }
