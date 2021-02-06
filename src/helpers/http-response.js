@@ -11,8 +11,8 @@ function makeHttpRes ({ statusCode, resData={} }) {
 export default self = {
 	'okay': () => {
 		makeHttpRes({
-			statusCode = 200, 
-			resData = {
+			statusCode : 200, 
+			resData : {
 				success: true,
 				message: 'Intended action finished successfully.',
 			}
@@ -21,8 +21,8 @@ export default self = {
 
 	'created': (result) => {
 		makeHttpRes({
-			statusCode = 201,
-			resData = {
+			statusCode : 201,
+			resData : {
 				success: true,
 				message: 'Resource created.',
 				result: result
@@ -32,14 +32,14 @@ export default self = {
 
 	'no_content': () => {
 		makeHttpRes({
-			statusCode = 204,
+			statusCode : 204,
 		})
 	},
 
 	'bad_request': () => {
 		makeHttpRes({
-			statusCode = 400,
-			resData = {
+			statusCode : 400,
+			resData : {
 				success: false,
 				message: 'Missing Required Param (or) Invalid Required Param'
 			}
@@ -48,8 +48,8 @@ export default self = {
 
 	'not_authenticate': () => {
 		makeHttpRes({
-			statusCode = 401,
-			resData = {
+			statusCode : 401,
+			resData : {
 				success: false,
 				message: 'Request not authenticated.'
 			}
@@ -58,8 +58,8 @@ export default self = {
 
 	'insufficient_right': () => {
 		makeHttpRes({
-			statusCode = 403,
-			resData = {
+			statusCode : 403,
+			resData : {
 				success: false,
 				message: 'Forbidden request. User do not have sufficient right.'
 			}
@@ -68,8 +68,8 @@ export default self = {
 
 	'not_found': () => {
 		makeHttpRes({
-			statusCode = 400,
-			resData = {
+			statusCode : 400,
+			resData : {
 				success: false,
 				message: 'Cannot map URI to any resources.'
 			}
@@ -78,8 +78,8 @@ export default self = {
 
 	'method_not_allow': () => {
 		makeHttpRes({
-			statusCode = 405,
-			resData = {
+			statusCode : 405,
+			resData : {
 				success: false,
 				message: 'Http(s) method not allow.'
 			}
@@ -88,8 +88,8 @@ export default self = {
 
 	'unsupported_content_type': () => {
 		makeHttpRes({
-			statusCode = 415,
-			resData = {
+			statusCode : 415,
+			resData : {
 				success: false,
 				message: 'Unsupported Content-Type Header.'
 			}
@@ -98,8 +98,8 @@ export default self = {
 
 	'too_many_request': (duration) => {
 		makeHttpRes({
-			statusCode = 429,
-			resData = {
+			statusCode : 429,
+			resData : {
 				success: false,
 				message: `Too many requests. Retry after ${duration}.`
 			}
@@ -108,8 +108,8 @@ export default self = {
 
 	'any_error': () => {
 		makeHttpRes({
-			statusCode = 500,
-			resData = {
+			statusCode : 500,
+			resData : {
 				success: false,
 				message: 'Internal server error.'
 			}
